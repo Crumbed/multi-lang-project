@@ -1,0 +1,5 @@
+#BlueJ class context
+comment0.target=Py_Handler
+comment1.params=str
+comment1.target=java.lang.String\ executePy(java.lang.String)
+numComments=2
