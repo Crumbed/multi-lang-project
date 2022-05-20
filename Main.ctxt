@@ -2,6 +2,12 @@
 comment0.target=Main
 comment1.params=args
 comment1.target=void\ main(java.lang.String[])
-comment2.params=
-comment2.target=java.lang.String\ randomString()
-numComments=3
+comment2.params=cmd\ content
+comment2.target=java.util.ArrayList\ createCommand(java.lang.String,\ java.lang.String)
+comment3.params=name\ content
+comment3.target=void\ createStrVar(java.lang.String,\ java.lang.String)
+comment4.params=variable
+comment4.target=java.util.ArrayList\ createVarCmd(java.util.ArrayList)
+comment5.params=
+comment5.target=java.lang.String\ randomString()
+numComments=6

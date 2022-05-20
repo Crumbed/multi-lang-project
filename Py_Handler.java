@@ -3,17 +3,24 @@ import java.io.BufferedReader;
 import java.util.*;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import com.google.gson.Gson; 
+
 
 public class Py_Handler {
     
     static String fullCode = ""; 
     
-    static String executePy(String str) throws IOException {
+    static String executePy(ArrayList cmds) throws IOException {
         
         try {
             
-            ProcessBuilder builder = new ProcessBuilder("python", "C:/Users/3140436/Desktop/pyhon-files/python-funcs.py", str);
+            String json = new Gson().toJson(cmds);
+            System.out.println(json);
+            
+            ProcessBuilder builder = new ProcessBuilder("python", "C:/Users/3140436/Desktop/pyhon-files/python-funcs.py", json);
             Process process = builder.start();
+            
+            
             
             BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
             BufferedReader readers = new BufferedReader(new InputStreamReader(process.getErrorStream()));
@@ -23,10 +30,13 @@ public class Py_Handler {
                 
                 if(lines != null){
                     fullCode = fullCode + lines;
-                } else {
-                    System.out.println("fuck null type");
                 }
+            }
+            while ((lines = readers.readLine()) != null) {
                 
+                if(lines != null){
+                    System.out.println(lines);
+                }
             }
         
             
